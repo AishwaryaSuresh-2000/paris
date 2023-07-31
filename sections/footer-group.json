@@ -1,0 +1,112 @@
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "8598c058-9712-437f-8614-382a1c61bc7d": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "custom_css": [
+        "div {max-block-size: 240px;}",
+        "h2 {color: red;}"
+      ],
+      "settings": {
+        "custom_liquid": "Get an offer in every purchase  100% guranteee",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "7b846e5f-7903-4757-b957-4e3a6b985400": {
+      "type": "newsletter",
+      "blocks": {
+        "sections--20160305201473__7b846e5f-7903-4757-b957-4e3a6b985400-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "sections--20160305201473__7b846e5f-7903-4757-b957-4e3a6b985400-paragraph-1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and exclusive offers.<\/p>"
+          }
+        },
+        "sections--20160305201473__7b846e5f-7903-4757-b957-4e3a6b985400-email_form-1": {
+          "type": "email_form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "sections--20160305201473__7b846e5f-7903-4757-b957-4e3a6b985400-heading-1",
+        "sections--20160305201473__7b846e5f-7903-4757-b957-4e3a6b985400-paragraph-1",
+        "sections--20160305201473__7b846e5f-7903-4757-b957-4e3a6b985400-email_form-1"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "disabled": true,
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Subscribe to our emails",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Subscribe to our mailing list for insider news, product launches, and more.<\/p><p>parisdiaries@gmail.com<\/p>"
+          }
+        },
+        "email_form": {
+          "type": "email_form",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "accent-1",
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 44
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "color_scheme": "accent-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "8598c058-9712-437f-8614-382a1c61bc7d",
+    "7b846e5f-7903-4757-b957-4e3a6b985400",
+    "newsletter",
+    "footer"
+  ]
+}

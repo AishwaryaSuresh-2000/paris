@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "main-cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main-cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "buttons"
+      ],
+      "settings": {
+      }
+    },
+    "0b268b8d-77da-4cd1-96b1-289196dc31be": {
+      "type": "new",
+      "disabled": true,
+      "settings": {
+        "section-heading": "",
+        "section-large-heading": "",
+        "description": "",
+        "view-btn-link": "",
+        "view-btn": "",
+        "image_url": ""
+      }
+    },
+    "17b44c10-1766-4898-ba47-1ed8a058458d": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "GET AN OFFER  ON EVERY PRODUCTS ON YOUR  fIRST PURCHASE",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main-cart-items",
+    "main-cart-footer",
+    "0b268b8d-77da-4cd1-96b1-289196dc31be",
+    "17b44c10-1766-4898-ba47-1ed8a058458d"
+  ]
+}
