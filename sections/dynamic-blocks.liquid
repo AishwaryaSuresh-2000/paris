@@ -1,0 +1,99 @@
+{% schema %}
+{
+  "name": "Dynamic Blocks",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Block #1 Text",
+      "id": "text1",
+      "default": "Block 1 Text"
+    },
+    {
+      "type": "image_picker",
+      "label": "Block #1 Image",
+      "id": "image1"
+    },
+    {
+      "type": "text",
+      "label": "Block #2 Text",
+      "id": "text2",
+      "default": "Block 2 Text"
+    },
+    {
+      "type": "image_picker",
+      "label": "Block #2 Image",
+      "id": "image2"
+    },
+    {
+      "type": "text",
+      "label": "Block #3 Text",
+      "id": "text3",
+      "default": "Block 3 Text"
+    },
+    {
+      "type": "image_picker",
+      "label": "Block #3 Image",
+      "id": "image3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom",
+      "settings": {
+        "text1": "Block 1 Text",
+        "text2": "Block 2 Text",
+        "text3": "Block 3 Text"
+      }
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .dynamic-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin:10px; 
+  }
+
+  .block-item {
+    display:flex;
+    flex-direction:column;
+    margin: 10px; 
+    text-align: center;
+  }
+
+  .block-item img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .block-item p {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+   
+    .dynamic-blocks{
+      flex-direction:column;
+      align-items:center;
+    }
+  }
+</style>
+
+<div class="dynamic-blocks">
+  <div class="block-item">
+    <img src="{{ section.settings.image1 | img_url }}" alt="{{ section.settings.text1 }}">
+    <p>{{ section.settings.text1 }}</p>
+  </div>
+  <div class="block-item">
+    <img src="{{ section.settings.image2 | img_url }}" alt="{{ section.settings.text2 }}">
+    <p>{{ section.settings.text2 }}</p>
+  </div>
+  <div class="block-item">
+    <img src="{{ section.settings.image3 | img_url }}" alt="{{ section.settings.text3 }}">
+    <p>{{ section.settings.text3 }}</p>
+  </div>
+</div>
