@@ -1,0 +1,53 @@
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [{
+      "type":"text",
+      "id":"heading",
+      "label":"Heading"
+    }],
+    "blocks":[{
+      "type":"image",
+      "name":"test",
+      "settings":[
+        
+        {
+        "type":"text",
+        "id":"test_text",
+        "label":"test Text"
+      },
+      {
+          "type":"image_picker",
+          "id":"test-image",
+          "label":"Enter image"
+        },
+       {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    }]
+    }],
+    "presets":[{
+      "name":"testimonial"}]
+  }
+{% endschema %}
+
+
+<style>
+  .dynamic-blocks {
+    display: block;
+  }
+</style>
+<div class="dynamic-blocks">
+  <p>{{section.settings.heading}}</p>
+
+<div class="block-item">
+{% for block in section.blocks %}
+<div class="images">
+  <img src="{{block.settings.test-image | img_url:"large"}}"/>
+  <p>{{ block.settings.test_text }}</p>
+    <p class="description">{{ block.settings.description }}</p>
+</div>
+  {% endfor %}
+</div>
+</div>

@@ -55,12 +55,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin:10px; 
+    margin: 10px; 
   }
 
   .block-item {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     margin: 10px; 
     text-align: center;
   }
@@ -74,11 +74,14 @@
     margin-top: 10px;
   }
 
+  .block-item button {
+    margin-top: 10px;
+  }
+
   @media (max-width: 768px) {
-   
-    .dynamic-blocks{
-      flex-direction:column;
-      align-items:center;
+    .dynamic-blocks {
+      flex-direction: column;
+      align-items: center;
     }
   }
 </style>
@@ -87,13 +90,16 @@
   <div class="block-item">
     <img src="{{ section.settings.image1 | img_url }}" alt="{{ section.settings.text1 }}">
     <p>{{ section.settings.text1 }}</p>
+    <button>Button 1</button>
   </div>
   <div class="block-item">
     <img src="{{ section.settings.image2 | img_url }}" alt="{{ section.settings.text2 }}">
     <p>{{ section.settings.text2 }}</p>
+    <button>Button 2</button>
   </div>
   <div class="block-item">
     <img src="{{ section.settings.image3 | img_url }}" alt="{{ section.settings.text3 }}">
     <p>{{ section.settings.text3 }}</p>
+    <button>Button 3</button>
   </div>
 </div>
