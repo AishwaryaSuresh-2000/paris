@@ -263,7 +263,8 @@
           "type": "image",
           "settings": {
             "test_text": "",
-            "description": ""
+            "test-image": "shopify:\/\/shop_images\/istockphoto-1300845620-612x612.jpg",
+            "description": "Office assistants handle organizational and clerical support tasks. This may include organizing files, scheduling appointments, writing copy, proofreading, receiving guests and more, depending on the company and its needs."
           }
         },
         "3280b220-792f-45f8-a2b8-7e237290a264": {
