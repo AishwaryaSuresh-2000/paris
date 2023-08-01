@@ -1,6 +1,6 @@
 {% schema %}
   {
-    "name": "Section name",
+    "name": "New section",
     "settings": [{
       "type":"text",
       "id":"heading",
@@ -34,13 +34,44 @@
 
 
 <style>
-  .dynamic-blocks {
-    display: block;
+  .block-item{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-around;
+  }
+  .images{
+     border: 2px solid pink;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     padding:10px;
+     width:25%;
+     text-align:center;
+     margin:10px;
+  }
+  img{
+     width:100%;
+  }
+
+   @media (max-width: 768px) {
+    .block-item {
+        display:flex;
+       margin:10px;
+      
+      flex-wrap:wrap;
+      align-items: center;
+    }
+    .images{
+     width:35%;
+    }
+  }
+  @media (max-width: 500px) {
+  .images{
+     width:50%;
+    }
   }
 </style>
 <div class="dynamic-blocks">
   <p>{{section.settings.heading}}</p>
-
+</div>
 <div class="block-item">
 {% for block in section.blocks %}
 <div class="images">
@@ -50,4 +81,4 @@
 </div>
   {% endfor %}
 </div>
-</div>
+
