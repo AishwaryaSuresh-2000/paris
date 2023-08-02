@@ -1,74 +1,121 @@
 {{ '//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css' | stylesheet_tag }}
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" defer="defer"></script>
 
-
-<script>
-  function handleCountryChange() {
-    const selectedCountry = $('#country').val();
-    const currentDate = new Date();
-
-    if (selectedCountry === 'Dubai') {
-      if (
-        currentDate.getHours() < 13 || 
-        (currentDate.getHours() === 13 && currentDate.getMinutes() <= 30) 
-      ) {
-        $('#date').datepicker('option', 'minDate', 0);
-      } else {
-        $('#date').datepicker('option', 'minDate', 1);
-      }
-    } else if (selectedCountry === 'Sharja' || selectedCountry === 'Abu Dhabi') {
-
-      $('#date').datepicker('option', 'minDate', 1);
-
-    } else {
-
-      $('#date').datepicker('option', 'minDate', 0);
-    }
+    <form >
+        <label for="country">Select your country:</label>
+        <select id="country" name="attributes[country]" onChange="CountryChange()" required>
+            <option value="Abu Dhabi">Abu Dhabi</option>
+            <option value="Sharja">Sharja</option>
+            <option value="Dubai">Dubai</option>
+        </select>
     
-  }
+    <div style="width:300px; clear:both;">
+    
+        <p>
+            <label for="date">Pick a delivery date:</label>
+            <input id="date" type="text" name="attributes[date]" value="{{cart.attributes.date}}"  required/>
+        </p>
+      </form>
+    </div>
 
- </script>
- 
-
-<div style="width:300px; clear:both;">
-  <p>
-    <label for="date">Pick a delivery date:</label>
-    <input id="date" type="text" name="attributes[date]" value="{{ cart.attributes.date }}" />
-  </p>
-
-</div>
-
-<form id="country-picker-form">
-  <label for="country">Select your country:</label>
-  <select id="country" name="country">
-    <option value="Abu Dhabi">Abu Dhabi</option>
-    <option value="Sharja">Sharja</option>
-    <option value="Dubai">Dubai</option>
-  </select>
-</form>
-
-<script>
- window.onload = function() {
-    if (window.jQuery) {
-      let $ = window.jQuery;
-
-      $(function() {
-        $("#date").prop("disabled", true);
-        $("select").on("change", function() {
-          $("#date").prop("disabled", false);
-          let selectedRegion = $(this).val();
-          console.log("Selected region:", selectedRegion);
+    <script>
+        function CountryChange() {
+            const selectedCountry = $('#country').val();
+            setCookie('country', selectedCountry, 1);
+            const currentDate = new Date();
+            let date = currentDate.getHours();
+            console.log(date);
+            let time = currentDate.getMinutes();
+            console.log(time);
+            if (selectedCountry === 'Dubai') {
+              
+                if (
+                    currentDate.getHours() < 13 ||
+                    (currentDate.getHours() === 13 && currentDate.getMinutes() <= 30)
+                ) {
+                    $('#date').datepicker('option', 'minDate', 0);
+                } else {
+                    $('#date').datepicker('option', 'minDate', 1);
+                }
+            } else if (selectedCountry === 'Sharja' || selectedCountry === 'Abu Dhabi') {
+              
+                $('#date').datepicker('option', 'minDate', 1);
+            } else {
+                $('#date').datepicker('option', 'minDate', 0);
+            }
+           
+            $('#date').val('');
           
-        });
+        }
 
-        $("#date").datepicker({
-          minDate: +1,
-          maxDate: '+2M',
-          beforeShowDay: $.datepicker.noWeekends
-        });
-      });
-    }
-  }
-</script>
+        function setCookie(cName, cValue, expDays) {
+            let date = new Date();
+            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(";");
+
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=");
+
+                if (name == cookiePair[0].trim()) {
+                  
+                    return decodeURIComponent(cookiePair[1]);
+                    
+               }
+            }
+
+            return null;
+        }
+
+        function setDate() {
+            let dateInput = document.getElementById("date");
+            let dateFromCookie = getCookie("date");
+
+            if (dateFromCookie) {
+                dateInput.value = dateFromCookie;
+            } 
+        }
+        function setCountry() {
+            let Input = document.getElementById("country");
+            let countryFromCookie = getCookie("country");
+
+            if (countryFromCookie) {
+              Input.value = countryFromCookie;
+            } 
+        }
+      
+
+        window.onload = function () {
+            if (window.jQuery) {
+                let $ = window.jQuery;
+                $(function () {
+                    $("#date").datepicker({
+                        minDate: +1,
+                        maxDate: '+2M',
+                        
+                        onSelect: function (date) {
+                            console.log("Selected date:", date);
+                            setCookie('date', date, 1);
+                        }
+                    });
+
+                    setDate();
+                    setCountry(); 
+                });
+            }
+        };
+    </script>
+
+
+
+
+
+
+
+
 
 
